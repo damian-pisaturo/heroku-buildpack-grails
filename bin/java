@@ -50,8 +50,8 @@ install_java() {
   export JAVA_HOME="${build_dir}/.jdk"
   export PATH="${build_dir}/.jdk/bin:${PATH}"
 								    
-  _install_tools ${baseDir}
-  _create_profile_script ${baseDir}
+  _install_tools ${build_dir}
+  _create_profile_script ${build_dir}
   _create_export_script ${JAVA_HOME} "$(pwd)"
 }
 
