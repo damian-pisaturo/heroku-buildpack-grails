@@ -12,6 +12,7 @@ ENV_DIR=$3
 
 # source in common functions
 . $BIN_DIR/common.sh
+. $BIN_DIR/util
 . $BIN_DIR/java
 
 export_env_dir $ENV_DIR
