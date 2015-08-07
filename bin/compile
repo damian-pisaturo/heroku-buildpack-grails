@@ -12,12 +12,7 @@ ENV_DIR=$3
 
 # source in common functions
 . $BIN_DIR/common.sh
-
-JVM_COMMON_BUILDPACK=${JVM_COMMON_BUILDPACK:-https://codon-buildpacks.s3.amazonaws.com/buildpacks/heroku/jvm-common.tgz}
-mkdir -p /tmp/jvm-common
-curl --silent --location $JVM_COMMON_BUILDPACK | tar xzm -C /tmp/jvm-common --strip-components=1
-. /tmp/jvm-common/bin/util
-. /tmp/jvm-common/bin/java
+. $BIN_DIR/java
 
 export_env_dir $ENV_DIR
 
@@ -95,10 +90,10 @@ fi
 
 # install JDK
 javaVersion=$(detect_java_version ${BUILD_DIR})
-echo -n "-----> Installing OpenJDK ${javaVersion}..."
-install_java ${BUILD_DIR} ${javaVersion}
+echo -n "-----> Installing JDK ${javaVersion}..."
+install_java ${BUILD_DIR} ${CACHE_DIR}
 jdk_overlay ${BUILD_DIR}
-echo "done"
+echo " version $(java_version) installed"
 
 cd $CACHE_DIR
 
