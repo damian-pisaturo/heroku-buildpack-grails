@@ -27,7 +27,7 @@ install_java() {
   
   build_dir=$1
   cache_dir=$2
-  jdk_url=${3:-"http://download.oracle.com/otn/java/jdk/7u80-b15/jdk-7u80-linux-x64.tar.gz"}
+  jdk_url=${3:-"http://download.oracle.com/otn-pub/java/jdk/7u80-b15/jdk-7u80-linux-x64.tar.gz"}
   jdk_ver=${4:-"1.7.0_80"}
 	    
   if [ ! -d "${cache_dir}" ]; then error "Invalid cache directory to store JDK."; fi
